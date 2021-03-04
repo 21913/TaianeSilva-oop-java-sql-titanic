@@ -14,17 +14,17 @@ public class TitanicQueries {
     final String DB_PASSWORD = "Amor1010*";
 
 
-    private PreparedStatement getPeopleByName;
+    private PreparedStatement getPeopleByName; // rever gpbn
 
     public TitanicQueries() {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 
             //select people by name
             String sqlQuery = "select name, gender, age from titanic WHERE name like ?";
-            getPeopleByName = con.prepareStatement(sqlQuery);
+            getPeopleByName = connection.prepareStatement(sqlQuery);
 
 
 
@@ -67,4 +67,12 @@ public class TitanicQueries {
 
 
     }
+
+    //*/************************************************************************
+
+
+
+    //*******************************************************************************
+
+
 }

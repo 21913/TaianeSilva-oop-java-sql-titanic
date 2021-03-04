@@ -15,24 +15,24 @@ public class TitanicListing extends JFrame {
 
         String[] columns = new String[]{
                 "name", "gender", "age"
-        };
+        }; // getByName, getByGender , getByAge
 
-        DefaultTableModel model = new DefaultTableModel();
+        DefaultTableModel m = new DefaultTableModel();
 
-        model.setColumnIdentifiers(columns);
+        m.setColumnIdentifiers(columns);
 
-        JTable table = new JTable(model);
+        JTable table = new JTable(m);
 
-//         model.addRow(new Object[]{"david", "male", 21});
-//         model.addRow(new Object[]{"john", "female", 38});
-//         model.addRow(new Object[]{"gladys", "female", 30});
+//         m.addRow(new Object[]{"david", "male", 21});
+//         m.addRow(new Object[]{"john", "female", 38});
+//         m.addRow(new Object[]{"gladys", "female", 30});
 
-        TitanicQueries tq = new TitanicQueries();
-        List<Passenger> passengers =  tq.getPassengersByName("michael");
+        TitanicQueries tqueries = new TitanicQueries();
+        List<Passenger> passengers =  tqueries.getPassengersByName("michael");
 
-        for(Passenger p : passengers) {
+        for(Passenger people : passengers) {
 
-            model.addRow(new Object[]{p.name, p.gender, p.age});
+            m.addRow(new Object[]{people.name, people.gender, people.age});
         }
 
 
@@ -44,3 +44,5 @@ public class TitanicListing extends JFrame {
 
     }
 }
+
+
